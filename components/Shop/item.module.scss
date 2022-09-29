@@ -1,0 +1,52 @@
+@mixin background {
+  border-radius: 25px;
+  width: 260px;
+  max-height: 355px;
+  margin: 12px;
+  color: #362419;
+}
+
+$bgWhite: #fff3d3;
+$bgRed: #cd4747;
+
+//Elements
+.bgWhite {
+  @include background;
+  background-color: $bgWhite;
+}
+
+.bgRed {
+  @include background;
+  background-color: $bgRed;
+}
+
+.image {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.name {
+  text-align: center;
+}
+
+.price {
+  margin-left: 15px;
+}
+
+.priceValue {
+  font-weight: bold;
+  display: inline;
+  margin-left: 13px;
+}
+
+.button {
+  color: rgb(253, 253, 253);
+  background-color: #362419;
+  border: 0;
+  border-radius: 15px;
+  padding: 3px 15px;
+  order: 2;
+  margin-bottom: 13px;
+  margin-right: 16px;
+  float: right;
+}

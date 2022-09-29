@@ -1,0 +1,34 @@
+@media (min-width: 992px) {
+  #atlas {
+    height: 93vh;
+  }
+}
+
+#atlas {
+  width: 100%;
+  min-width: 350px;
+}
+
+.overlay {
+  grid-row-start: 1;
+  grid-column-start: 1;
+}
+
+#overlay img {
+  max-height: 1200px;
+  width: 100%;
+}
+
+#wineata {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0;
+  max-height: 100%;
+}
+
+.background {
+  background-color: #575757;
+  height: 100%;
+  overflow: auto;
+}
