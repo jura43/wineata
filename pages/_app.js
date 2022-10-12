@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
-import "../styles/style.css";
 import Layout from "../components/Layout/layout";
+import Loading from "../components/LoadingScreen/loading-screen";
 import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Layout>
+      <Loading />
       <Component {...pageProps} />
     </Layout>
   );

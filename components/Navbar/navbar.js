@@ -1,10 +1,10 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
-import "./navbar.module.css";
+import style from "./navbar.module.css";
 
 function WineataNavbar() {
   return (
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar bg="dark" expand="lg" variant="dark" className={style.nav}>
       <Container fluid>
         <Link href="/" passHref>
           <Navbar.Brand>Wineata</Navbar.Brand>
