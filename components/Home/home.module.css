@@ -1,59 +1,59 @@
 #discover {
-    background-color: #B14E58;
-    margin-top: 35px;
-    margin-left: auto;
-    margin-bottom: 20px;
-    max-width: 95%;
-    height: auto;
-    -webkit-border-top-left-radius: 20px;
-    -webkit-border-bottom-left-radius: 20px;
-    -moz-border-radius-topleft: 20px;
-    -moz-border-radius-bottomleft: 20px;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #b14e58;
+  margin-top: 35px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  max-width: 95%;
+  height: auto;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #text {
-    font-size: small;
-    color: white;
-    opacity: .6;
-
+  font-size: small;
+  color: white;
+  opacity: 0.6;
 }
 
 #title {
-    font-weight: bolder;
-    color: white;
+  font-weight: bolder;
+  color: white;
 }
 
 #secondTitle {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 #search {
-    margin-top: 70px;
-    text-align: center;
+  margin-top: 70px;
+  text-align: center;
 }
 
 #search p {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 #info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 5%;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5%;
+  margin-top: 20px;
 }
 
 .homeCol {
-    margin: auto;
-    margin-top: 20px;
-    text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .search {
-    margin: auto;
-    margin-top: 20px;
+  margin: auto;
+  margin-top: 20px;
+  max-width: 336px;
 }

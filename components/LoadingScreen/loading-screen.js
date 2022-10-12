@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Image from "next/future/image";
 import { motion, AnimatePresence } from "framer-motion";
 import style from "./loading-screen.module.scss";
 

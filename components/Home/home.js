@@ -53,7 +53,7 @@ function Home() {
         </Col>
       </Row>
       <Row>
-        <Col lg={2} md={4} xs={8} className={style.search}>
+        <Col xxl={3} lg={3} md={4} xs={11} className={style.search}>
           <Search
             src="/home/search1.jpg"
             text="Winery tour in Wineary Kozlović with included lunch."
@@ -61,7 +61,7 @@ function Home() {
             alt="Search1"
           />
         </Col>
-        <Col lg={2} md={4} xs={8} className={style.search}>
+        <Col xxl={3} lg={3} md={4} xs={11} className={style.search}>
           <Search
             src="/home/search2.jpg"
             text="Wine Tasting in Winery Baraka, full day event."
@@ -69,7 +69,7 @@ function Home() {
             alt="Search2"
           />
         </Col>
-        <Col lg={2} md={4} xs={8} className={style.search}>
+        <Col xxl={3} lg={3} md={4} xs={11} className={style.search}>
           <Search
             src="/home/search3.jpg"
             text="Wine seminar in winery Tomić, learn how to make wine."

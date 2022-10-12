@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import style from "./infoPicture.module.css";
 import { motion } from "framer-motion";
 

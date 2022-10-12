@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import style from "./search.module.css";
 import Stopwatch from "../../public/home/icon/stopwatch-icon.svg";
 import { motion } from "framer-motion";
@@ -14,15 +14,7 @@ function Search(props) {
   return (
     <div id={style.search}>
       <div id={style.wrap}>
-        <Image
-          src={props.src}
-          alt={props.alt}
-          className={style.image}
-          width={708}
-          height={481}
-          layout="responsive"
-          objectFit="contain"
-        />
+        <Image src={props.src} alt={props.alt} className={style.image} fill />
       </div>
       <p id={style.text}>{props.text}</p>
       <div id={style.time}>

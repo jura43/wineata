@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import style from "./image.module.css";
@@ -13,13 +13,9 @@ const buttonVariant = {
 function HomeImage(prop) {
   return (
     <>
-      <Image
-        src={prop.src}
-        alt={prop.alt}
-        width={400}
-        height={400}
-        layout="intrinsic"
-      />
+      <div className={style.wrap}>
+        <Image className={style.image} src={prop.src} alt={prop.alt} fill />
+      </div>
       <Link href={prop.href}>
         <motion.button
           id={style.button}

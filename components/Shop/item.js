@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/future/image";
 import { motion } from "framer-motion";
 import style from "./item.module.scss";
 import Link from "next/link";
