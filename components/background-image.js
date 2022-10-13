@@ -9,6 +9,7 @@ function BackgroundImage(props) {
         <Image
           className={style.image}
           src={props.src}
+          onLoadingComplete={props.onLoadingComplete}
           alt="background"
           fill
           priority
