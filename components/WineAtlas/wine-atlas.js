@@ -54,10 +54,12 @@ function WineAtlas(props) {
   const [regionInfo, setRegionInfo] = useState();
 
   function openRegion(event) {
-    console.log("open");
     const region = event.target.id
       .replace("wineata1_svg__", "")
       .replace("_x5F", "");
+    if (region.length === 0) {
+      return;
+    }
     setRegionSlug("../../SVG/".concat(region, ".svg"));
     setRegionInfo(props.regions.regions.find((r) => r.name === region));
     setOverlayIsOpen(true);
@@ -65,7 +67,6 @@ function WineAtlas(props) {
 
   function closeRegion() {
     setOverlayIsOpen(false);
-    console.log("close");
   }
 
   return (

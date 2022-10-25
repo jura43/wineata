@@ -7,6 +7,7 @@
 #atlas {
   width: 100%;
   min-width: 350px;
+  pointer-events: none;
 }
 
 .overlay {
@@ -31,4 +32,8 @@
   background-color: #575757;
   height: 100%;
   overflow: auto;
+}
+
+#atlas object[class^="wineata1_svg__cls-"] {
+  opacity: 0;
 }
