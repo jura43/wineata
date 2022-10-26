@@ -11,6 +11,9 @@ const nextConfig = {
     return config;
   },
   output: "standalone",
+  images: {
+    domains: ["i.imgur.com"],
+  },
 };
 
 module.exports = nextConfig;

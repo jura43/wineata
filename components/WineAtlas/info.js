@@ -32,8 +32,9 @@ function Info(props) {
         </ul>
       </div>
       <div id={style.infoPictures}>
-        <InfoPicture src="/infoPicture/zagreb1.jpg" alt="1" />
-        <InfoPicture src="/infoPicture/zagreb2.jpg" alt="2" />
+        {props.region.images.map((image) => (
+          <InfoPicture key={image} src={image} alt={image} />
+        ))}
       </div>
     </div>
   );
