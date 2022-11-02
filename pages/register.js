@@ -1,6 +1,7 @@
 import Head from "next/head";
 import RegisterForm from "../components/Forms/register-form";
 import BackgroundImage from "../components/background-image";
+import LoadingScreen from "../components/LoadingScreen/loading-screen";
 import { Container, Row, Col } from "react-bootstrap";
 import { useState } from "react";
 

@@ -5,9 +5,9 @@ import LoadingScreen from "./loading-screen";
 function Loading() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const regex = new RegExp("\\?");
 
   useEffect(() => {
+    const regex = new RegExp("\\?");
     const handleStart = (url) => {
       if (!regex.test(url) && !regex.test(router.asPath)) {
         setLoading(true);
