@@ -4,6 +4,7 @@ import style from "./wine-atlas.module.css";
 import { useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
 import { Container, Row, Col } from "react-bootstrap";
+import Image from "next/future/image";
 
 const atlasVariant = {
   hidden: {
@@ -61,7 +62,7 @@ function WineAtlas(props) {
     if (region.length === 0) {
       return;
     }
-    setRegionSlug("../../SVG/".concat(region, ".svg"));
+    setRegionSlug("/SVG/".concat(region, ".svg"));
     setRegionInfo(props.regions.regions.find((r) => r.name === region));
     setOverlayIsOpen(true);
   }
@@ -97,7 +98,13 @@ function WineAtlas(props) {
                 animate="visible"
                 exit={{ opacity: 0 }}
               >
-                <img alt="region" src={regionSlug} id={style.region} />
+                <Image
+                  alt="region"
+                  src={regionSlug}
+                  id={style.region}
+                  fill
+                  sizes="false"
+                />
               </motion.div>
             )}
           </AnimatePresence>
