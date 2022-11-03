@@ -1,4 +1,4 @@
-import Atlas from "../../public/wineata1.svg";
+import Atlas from "../../public/wineata2.svg";
 import Info from "./info";
 import style from "./wine-atlas.module.css";
 import { useState } from "react";
@@ -56,7 +56,7 @@ function WineAtlas(props) {
 
   function openRegion(event) {
     const region = event.target.id
-      .replace("wineata1_svg__", "")
+      .replace("wineata2_svg__", "")
       .replace("_x5F", "");
     console.log(region);
     if (region.length === 0) {
