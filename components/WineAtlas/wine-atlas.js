@@ -2,7 +2,8 @@ import Atlas from "../../public/wineata2.svg";
 import Info from "./info";
 import style from "./wine-atlas.module.css";
 import { useState } from "react";
-import { motion, AnimatePresence, useWillChange } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { Container, Row, Col } from "react-bootstrap";
 import Image from "next/future/image";
 
@@ -49,17 +50,22 @@ const overlayVariant = {
 };
 
 function WineAtlas(props) {
-  const willChange = useWillChange();
   const [overlayIsOpen, setOverlayIsOpen] = useState(false);
   const [regionSlug, setRegionSlug] = useState();
   const [regionInfo, setRegionInfo] = useState();
+  const [pointerEvent, setPointerEvent] = useState(false);
 
   function openRegion(event) {
+    if (pointerEvent) {
+      return;
+    }
     const region = event.target.id
       .replace("wineata2_svg__", "")
       .replace("_x5F", "");
     console.log(region);
     if (region.length === 0) {
+      setPointerEvent(false);
+      console.log("emptz", pointerEvent);
       return;
     }
     setRegionSlug("/SVG/".concat(region, ".svg"));
@@ -69,6 +75,7 @@ function WineAtlas(props) {
 
   function closeRegion() {
     setOverlayIsOpen(false);
+    setPointerEvent(false);
   }
 
   return (
@@ -80,11 +87,32 @@ function WineAtlas(props) {
             variants={atlasVariant}
             initial="hidden"
             animate={overlayIsOpen ? "minimized" : "maximize"}
-            style={{ willChange }}
             id={style.atlasWrap}
             className={style.overlay}
           >
-            <Atlas onClick={openRegion} id={style.atlas} />
+            <TransformWrapper
+              onPanningStart={(ref) => {
+                console.log(ref);
+                setTimeout(() => {
+                  setPointerEvent(true);
+                }, 150);
+              }}
+              onPanningStop={() => {
+                if (!pointerEvent) {
+                  setTimeout(() => {
+                    setPointerEvent(false);
+                  }, 180);
+                }
+
+                setTimeout(() => {
+                  setPointerEvent(false);
+                }, 25);
+              }}
+            >
+              <TransformComponent>
+                <Atlas onClick={openRegion} id={style.atlas} />
+              </TransformComponent>
+            </TransformWrapper>
           </motion.div>
           <AnimatePresence>
             {overlayIsOpen && (
