@@ -54,6 +54,7 @@ function WineAtlas(props) {
   const [regionSlug, setRegionSlug] = useState();
   const [regionInfo, setRegionInfo] = useState();
   const [pointerEvent, setPointerEvent] = useState(false);
+  const [position, setPosition] = useState(null);
 
   function openRegion(event) {
     if (pointerEvent) {
@@ -92,21 +93,16 @@ function WineAtlas(props) {
           >
             <TransformWrapper
               onPanningStart={(ref) => {
-                console.log(ref);
-                setTimeout(() => {
-                  setPointerEvent(true);
-                }, 150);
+                setPosition([ref.state.positionX, ref.state.positionY]);
+                setPointerEvent(true);
               }}
-              onPanningStop={() => {
-                if (!pointerEvent) {
-                  setTimeout(() => {
-                    setPointerEvent(false);
-                  }, 180);
-                }
-
-                setTimeout(() => {
+              onPanningStop={(ref) => {
+                if (
+                  ref.state.positionX === position[0] &&
+                  ref.state.positionY === position[1]
+                ) {
                   setPointerEvent(false);
-                }, 25);
+                }
               }}
             >
               <TransformComponent>
