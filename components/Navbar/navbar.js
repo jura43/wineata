@@ -4,7 +4,13 @@ import style from "./navbar.module.css";
 
 function WineataNavbar() {
   return (
-    <Navbar bg="dark" expand="lg" variant="dark" className={style.nav}>
+    <Navbar
+      bg="dark"
+      expand="lg"
+      variant="dark"
+      className={style.nav}
+      collapseOnSelect
+    >
       <Container fluid>
         <Link href="/" passHref>
           <Navbar.Brand>Wineata</Navbar.Brand>
