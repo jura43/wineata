@@ -3,7 +3,8 @@ import Winerie from "./winerie";
 import Filter from "./filter";
 import style from "./wineries.module.scss";
 
-function Wineries() {
+function Wineries(props) {
+  console.log(props);
   return (
     <Container fluid className={style.background}>
       <Row>
@@ -11,9 +12,14 @@ function Wineries() {
           <Filter />
         </Col>
         <Col sm={12} md={9} lg={10} xl={10} id={style.wineries}>
-          <Winerie title="Winerie Mirić" distance="23km" rating="4.5" />
-          <Winerie title="Winerie Horvat" distance="8km" rating="3" />
-          <Winerie title="Winerie Kalić" distance="59km" rating="5" />
+          {props.wineries.wineries.map((winery) => (
+            <Winerie
+              title={winery.title}
+              distance={winery.distance}
+              rating={winery.rating}
+              key={winery.title}
+            />
+          ))}
         </Col>
       </Row>
     </Container>
