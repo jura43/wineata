@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import style from "./winerie.module.scss";
+import Link from "next/link";
+import style from "./winery.module.scss";
 
 const buttonVariant = {
   hover: {
@@ -20,7 +21,7 @@ function Wineries(props) {
           variants={buttonVariant}
           whileHover="hover"
         >
-          More info
+          <Link href={`/wineries/?winery=test`}>More info</Link>
         </motion.button>
       </div>
     </div>

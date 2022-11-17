@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Wineries from "../components/WIneries/wineries";
+import Wineries from "../components/Wineries/wineries";
 
 export async function getServerSideProps() {
   const res = await fetch(
