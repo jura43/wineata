@@ -14,7 +14,7 @@ function Wineries(props) {
   return (
     <Container fluid className={style.background}>
       <Row>
-        <Col sm={12} md={3} lg={2} xl={2} id={style.filter}>
+        <Col sm={12} md={12} lg={2} xl={2} id={style.filter}>
           <Filter />
         </Col>
         <Col sm={12} md={9} lg={10} xl={10} id={style.wineries}>

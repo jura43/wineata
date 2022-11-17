@@ -1,5 +1,18 @@
 @import "styles/variables.scss";
 
+@media (min-width: 992px) {
+  .button {
+    display: none;
+  }
+
+  #filter {
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
 #filter {
   background-color: $lightBrown;
   height: 100%;
@@ -24,4 +37,18 @@
 
 .range {
   padding-right: 10px;
+}
+
+.title {
+  display: inline;
+}
+
+.button {
+  float: right;
+  margin-right: 20px;
+  margin-top: 3px;
+}
+
+.button:hover {
+  cursor: pointer;
 }
