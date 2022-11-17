@@ -9,10 +9,14 @@ const buttonVariant = {
   },
 };
 
-function Wineries(props) {
+// Winery card in wineries page
+
+function Winery(props) {
   return (
     <div className={style.winerie}>
-      <h2>{props.title}</h2>
+      <Link href={`/wineries/?winery=${props.name}`}>
+        <h2>{props.title}</h2>
+      </Link>
       <h5>{props.rating}/5</h5>
       <h5>{props.distance} km</h5>
       <div className={style.buttonHolder}>
@@ -21,11 +25,11 @@ function Wineries(props) {
           variants={buttonVariant}
           whileHover="hover"
         >
-          <Link href={`/wineries/?winery=test`}>More info</Link>
+          More info
         </motion.button>
       </div>
     </div>
   );
 }
 
-export default Wineries;
+export default Winery;

@@ -1,8 +1,13 @@
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import Modal from "react-modal";
 import { useRouter } from "next/router";
-import Winerie from "./winery";
+import Winery from "./winery";
+
 import Filter from "./filter";
 import style from "./wineries.module.scss";
+import WineryModal from "./wineryModal";
+
+Modal.setAppElement("#__next");
 
 function Wineries(props) {
   const router = useRouter();
@@ -14,31 +19,26 @@ function Wineries(props) {
         </Col>
         <Col sm={12} md={9} lg={10} xl={10} id={style.wineries}>
           {props.wineries.wineries.map((winery) => (
-            <Winerie
+            <Winery
               title={winery.title}
               distance={winery.distance}
               rating={winery.rating}
               key={winery.title}
+              name={winery.name}
             />
           ))}
         </Col>
         <Modal
-          show={!!router.query.winery}
-          onHide={() => router.push("/wineries")}
-          dialogClassName="modal-90w"
+          isOpen={!!router.query.winery}
+          onRequestClose={() => router.push("/wineries")}
+          className={style.modal}
+          overlayClassName={style.overlay}
         >
-          <Modal.Header closeButton></Modal.Header>
-          <Modal.Body>
-            <p>
-              Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
-              unde commodi aspernatur enim, consectetur. Cumque deleniti
-              temporibus ipsam atque a dolores quisquam quisquam adipisci
-              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
-              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
-              Mollitia reiciendis porro quo magni incidunt dolore amet atque
-              facilis ipsum deleniti rem!
-            </p>
-          </Modal.Body>
+          <WineryModal
+            winery={props.wineries.wineries.find(
+              (winery) => winery.name === router.query.winery
+            )}
+          />
         </Modal>
       </Row>
     </Container>
