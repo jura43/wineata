@@ -14,19 +14,20 @@ const buttonVariant = {
 function Winery(props) {
   return (
     <div className={style.winerie}>
-      <Link href={`/wineries/?winery=${props.name}`}>
-        <h2>{props.title}</h2>
-      </Link>
+      <h2>{props.title}</h2>
+
       <h5>{props.rating}/5</h5>
       <h5>{props.distance} km</h5>
       <div className={style.buttonHolder}>
-        <motion.button
-          className={style.button}
-          variants={buttonVariant}
-          whileHover="hover"
-        >
-          More info
-        </motion.button>
+        <Link href={`/wineries/?winery=${props.name}`}>
+          <motion.button
+            className={style.button}
+            variants={buttonVariant}
+            whileHover="hover"
+          >
+            More info
+          </motion.button>
+        </Link>
       </div>
     </div>
   );
