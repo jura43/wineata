@@ -33,6 +33,7 @@ function Filter() {
           className={style.button}
           width={30}
           height={30}
+          alt="filter_icon"
         />
       </div>
       <Collapse in={isOpen}>
