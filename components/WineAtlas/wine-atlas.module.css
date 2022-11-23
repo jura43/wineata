@@ -10,6 +10,30 @@
   pointer-events: none;
 }
 
+.buttonsOverlay {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  align-items: center;
+}
+
+.popover {
+  padding: 10px;
+}
+
+.popoverList {
+  padding-left: 12px;
+}
+
+.buttonsOverlay button {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
 .overlay {
   grid-row-start: 1;
   grid-column-start: 1;

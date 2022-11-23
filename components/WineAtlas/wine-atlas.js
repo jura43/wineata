@@ -3,7 +3,7 @@ import Info from "./info";
 import style from "./wine-atlas.module.css";
 import { useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, OverlayTrigger, Popover } from "react-bootstrap";
 import Image from "next/future/image";
 
 const atlasVariant = {
@@ -48,6 +48,18 @@ const overlayVariant = {
   },
 };
 
+const popover = (
+  <Popover id="instructions">
+    <Popover.Header as="h3">How to use wine atlas?</Popover.Header>
+    <Popover.Body className={style.popover}>
+      <ul className={style.popoverList}>
+        <li>To see more infomation about some region click on initial</li>
+        <li>To close region click on close button or click beside</li>
+      </ul>
+    </Popover.Body>
+  </Popover>
+);
+
 function WineAtlas(props) {
   const willChange = useWillChange();
   const [overlayIsOpen, setOverlayIsOpen] = useState(false);
@@ -85,6 +97,24 @@ function WineAtlas(props) {
             className={style.overlay}
           >
             <Atlas onClick={openRegion} id={style.atlas} />
+            {!overlayIsOpen && (
+              <div className={style.buttonsOverlay}>
+                <OverlayTrigger
+                  trigger="click"
+                  placement="left-start"
+                  overlay={popover}
+                >
+                  <button>
+                    <Image
+                      src="/icons/question-mark.png"
+                      alt="question_mark"
+                      width={50}
+                      height={50}
+                    />
+                  </button>
+                </OverlayTrigger>
+              </div>
+            )}
           </motion.div>
           <AnimatePresence>
             {overlayIsOpen && (
