@@ -3,7 +3,14 @@ import Info from "./info";
 import style from "./wine-atlas.module.css";
 import { useState } from "react";
 import { motion, AnimatePresence, useWillChange } from "framer-motion";
-import { Container, Row, Col, OverlayTrigger, Popover } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  OverlayTrigger,
+  Popover,
+  Button,
+} from "react-bootstrap";
 import Image from "next/future/image";
 
 const atlasVariant = {
@@ -53,7 +60,7 @@ const popover = (
     <Popover.Header as="h3">How to use wine atlas?</Popover.Header>
     <Popover.Body className={style.popover}>
       <ul className={style.popoverList}>
-        <li>To see more infomation about some region click on initial</li>
+        <li>To see more infomation about some region click on it</li>
         <li>To close region click on close button or click beside</li>
       </ul>
     </Popover.Body>
@@ -128,6 +135,12 @@ function WineAtlas(props) {
                 animate="visible"
                 exit={{ opacity: 0 }}
               >
+                <Button
+                  variant="outline-secondary"
+                  className={style.closeButton}
+                >
+                  Close
+                </Button>
                 <Image
                   alt="region"
                   src={regionSlug}
