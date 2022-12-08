@@ -30,7 +30,9 @@ function Wineries(props) {
         </Col>
         <Modal
           isOpen={!!router.query.winery}
-          onRequestClose={() => router.push("/wineries")}
+          onRequestClose={() =>
+            router.push("/wineries", undefined, { shallow: true })
+          }
           className={style.modal}
           overlayClassName={style.overlay}
         >

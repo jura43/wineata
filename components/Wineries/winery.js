@@ -19,7 +19,7 @@ function Winery(props) {
       <h5>{props.rating}/5</h5>
       <h5>{props.distance} km</h5>
       <div className={style.buttonHolder}>
-        <Link href={`/wineries/?winery=${props.name}`}>
+        <Link href={`/wineries/?winery=${props.name}`} shallow>
           <motion.button
             className={style.button}
             variants={buttonVariant}
