@@ -3,9 +3,14 @@ import Form from "react-bootstrap/Form";
 import { useState, useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import Image from "next/future/image";
+import { useRouter } from "next/router";
 
-function Filter(props) {
+// Component for rendering filter window and manipulating filters
+export default function Filter(props) {
+  const router = useRouter();
+
   const [isOpen, setIsOpen] = useState(false); // Managing filter window on mobile devices
+  const [selectedFilters, setFilter] = useState([]);
 
   // Function for controling filter window on mobile devices
   function handleResize() {
@@ -16,7 +21,38 @@ function Filter(props) {
     }
   }
 
+  // Function for setting filter and getting new data
+  function handleFilter(county) {
+    const id = parseInt(county, 10);
+    let route = [];
+    console.log("opali");
+    if (selectedFilters.includes(id)) {
+      setFilter(selectedFilters.filter((item) => item !== id));
+      route = selectedFilters.filter((item) => item !== id);
+    } else {
+      setFilter([...selectedFilters, id]);
+      route = [...selectedFilters, id];
+    }
+
+    if (route.length > 0) {
+      router.push("/wineries/?county=" + route.join("&county="), undefined, {
+        shallow: true,
+      });
+    } else {
+      router.push("/wineries", undefined, { shallow: true });
+    }
+  }
+
+  // Inital render
   useEffect(() => {
+    if (!!Object.keys(router.query).length) {
+      if (Array.isArray(router.query.county)) {
+        setFilter(router.query.county.map((number) => parseInt(number, 10)));
+      } else {
+        setFilter([parseInt(router.query.county, 10)]);
+      }
+    }
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -42,7 +78,16 @@ function Filter(props) {
           <div id={style.regions}>
             <p className={style.filterTitle}>County</p>
             {props.counties.map((county) => (
-              <Form.Check type="checkbox" key={county.id} label={county.name} />
+              <Form.Check
+                type="checkbox"
+                key={county.id}
+                value={county.id}
+                label={county.name}
+                onClick={(county) => handleFilter(county.target.value)}
+                defaultChecked={
+                  selectedFilters.includes(county.id) ? true : undefined
+                }
+              />
             ))}
           </div>
         </div>
@@ -50,5 +95,3 @@ function Filter(props) {
     </div>
   );
 }
-
-export default Filter;
