@@ -20,6 +20,7 @@ function WineriesPage({ wineries, counties }) {
   const router = useRouter();
 
   let selectedCounties = wineries.record.wineries;
+
   if (!!router.query.county) {
     selectedCounties = wineries.record.wineries.filter(
       (winery) => winery.county == router.query.county
@@ -32,7 +33,10 @@ function WineriesPage({ wineries, counties }) {
         <title>Wineata - Wineries</title>
         <meta property="og:title" content="Wineata - Wineries" key="title" />
       </Head>
-      <Wineries wineries={selectedCounties} />
+      <Wineries
+        wineries={selectedCounties}
+        counties={counties.record.counties}
+      />
     </>
   );
 }

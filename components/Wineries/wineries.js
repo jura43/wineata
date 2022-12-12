@@ -16,7 +16,7 @@ function Wineries(props) {
     <Container fluid className={style.background}>
       <Row>
         <Col sm={12} md={12} lg={2} xl={2} id={style.filter}>
-          <Filter />
+          <Filter counties={props.counties} />
         </Col>
         <Col sm={12} md={9} lg={10} xl={10} id={style.wineries}>
           {props.wineries.map((winery) => (

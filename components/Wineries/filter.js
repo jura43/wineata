@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Collapse from "react-bootstrap/Collapse";
 import Image from "next/future/image";
 
-function Filter() {
-  const [isOpen, setIsOpen] = useState(false);
+function Filter(props) {
+  const [isOpen, setIsOpen] = useState(false); // Managing filter window on mobile devices
 
+  // Function for controling filter window on mobile devices
   function handleResize() {
     if (window.innerWidth > 991) {
       setIsOpen(true);
@@ -39,27 +40,10 @@ function Filter() {
       <Collapse in={isOpen}>
         <div id={style.filters}>
           <div id={style.regions}>
-            <p className={style.filterTitle}>Regions</p>
-            <Form.Check type="checkbox" label="Grad Zagreb" />
-            <Form.Check type="checkbox" label="Zagorje" />
-            <Form.Check type="checkbox" label="Slavonija" />
-            <Form.Check type="checkbox" label="Istra" />
-            <Form.Check type="checkbox" label="Dalmacija" />
-            <Form.Check type="checkbox" label="Međimurje" />
-          </div>
-          <div id={style.range}>
-            <p className={style.filterTitle}>Range</p>
-            <div className={style.range}>
-              <Form.Range />
-            </div>
-          </div>
-          <div id={style.taing}>
-            <p className={style.filterTitle}>Rating</p>
-            <Form.Check type="checkbox" label="5 stars" />
-            <Form.Check type="checkbox" label="4 stars" />
-            <Form.Check type="checkbox" label="3 stars" />
-            <Form.Check type="checkbox" label="2 stars" />
-            <Form.Check type="checkbox" label="1 stars" />
+            <p className={style.filterTitle}>County</p>
+            {props.counties.map((county) => (
+              <Form.Check type="checkbox" key={county.id} label={county.name} />
+            ))}
           </div>
         </div>
       </Collapse>
