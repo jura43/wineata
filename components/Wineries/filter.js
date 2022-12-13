@@ -25,13 +25,13 @@ export default function Filter(props) {
   function handleFilter(county) {
     const id = parseInt(county, 10);
     let route = [];
-    console.log("opali");
+
     if (selectedFilters.includes(id)) {
-      setFilter(selectedFilters.filter((item) => item !== id));
       route = selectedFilters.filter((item) => item !== id);
+      setFilter(route);
     } else {
-      setFilter([...selectedFilters, id]);
       route = [...selectedFilters, id];
+      setFilter(route);
     }
 
     if (route.length > 0) {

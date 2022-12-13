@@ -16,15 +16,20 @@ export async function getServerSideProps() {
   };
 }
 
-function WineriesPage({ wineries, counties }) {
+export default function WineriesPage({ wineries, counties }) {
   const router = useRouter();
 
-  let selectedCounties = wineries.record.wineries;
+  let selectedCounties = [];
 
   if (!!router.query.county) {
-    selectedCounties = wineries.record.wineries.filter(
-      (winery) => winery.county == router.query.county
+    let route = [...router.query.county];
+    route = route.map((number) => parseInt(number, 10));
+    console.log(route);
+    selectedCounties = wineries.record.wineries.filter((winery) =>
+      route.includes(winery.county)
     );
+  } else {
+    selectedCounties = wineries.record.wineries;
   }
 
   return (
@@ -40,5 +45,3 @@ function WineriesPage({ wineries, counties }) {
     </>
   );
 }
-
-export default WineriesPage;
