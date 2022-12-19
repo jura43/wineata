@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps() {
   const res = await fetch(
-    "https://api.jsonbin.io/v3/b/637536cc2b3499323b01bff4"
+    "https://api.jsonbin.io/v3/b/63a04b4401a72b59f2345f4c"
   );
   const res1 = await fetch(
     "https://api.jsonbin.io/v3/b/63948d0c6a51bc4f704c0044"
@@ -24,7 +24,6 @@ export default function WineriesPage({ wineries, counties }) {
   if (!!router.query.county) {
     let route = [...router.query.county];
     route = route.map((number) => parseInt(number, 10));
-    console.log(route);
     selectedCounties = wineries.record.wineries.filter((winery) =>
       route.includes(winery.county)
     );

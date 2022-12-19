@@ -13,3 +13,13 @@
 .image {
   margin: 10px;
 }
+
+.county {
+  text-transform: uppercase;
+}
+
+.aboutTitle,
+.winesTitle,
+.linkTitle {
+  font-weight: 650;
+}

@@ -9,7 +9,7 @@ import WineryModal from "./wineryModal";
 
 Modal.setAppElement("#__next");
 
-function Wineries(props) {
+export default function Wineries(props) {
   const router = useRouter();
 
   return (
@@ -41,11 +41,10 @@ function Wineries(props) {
             winery={props.wineries.find(
               (winery) => winery.name === router.query.winery
             )}
+            counties={props.counties}
           />
         </Modal>
       </Row>
     </Container>
   );
 }
-
-export default Wineries;

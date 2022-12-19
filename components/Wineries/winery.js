@@ -15,9 +15,6 @@ function Winery(props) {
   return (
     <div className={style.winerie}>
       <h2>{props.title}</h2>
-
-      <h5>{props.rating}/5</h5>
-      <h5>{props.distance} km</h5>
       <div className={style.buttonHolder}>
         {props.filters ? (
           <Link href={props.slug + `&winery=${props.name}`} shallow>
