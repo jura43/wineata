@@ -24,7 +24,7 @@ function WineryModal(props) {
           <h4 className={style.winesTitle}>Wines</h4>
           <ul>
             {props.winery.wines.map((wine) => (
-              <li>{wine}</li>
+              <li key={wine}>{wine}</li>
             ))}
           </ul>
           <h4 className={style.linkTitle}>Links</h4>

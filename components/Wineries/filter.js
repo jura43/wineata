@@ -45,6 +45,7 @@ export default function Filter(props) {
 
   // Inital render
   useEffect(() => {
+    // Warning that is printing on application build is a bug in NextJS
     if (!!Object.keys(router.query).length) {
       if (Array.isArray(router.query.county)) {
         setFilter(router.query.county.map((number) => parseInt(number, 10)));

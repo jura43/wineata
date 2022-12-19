@@ -2,7 +2,7 @@ import Head from "next/head";
 import Wineries from "../components/Wineries/wineries";
 import { useRouter } from "next/router";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(
     "https://api.jsonbin.io/v3/b/63a04b4401a72b59f2345f4c"
   );
@@ -13,6 +13,7 @@ export async function getServerSideProps() {
   const counties = await res1.json();
   return {
     props: { wineries: data, counties: counties },
+    revalidate: 30,
   };
 }
 
