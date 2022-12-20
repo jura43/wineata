@@ -19,11 +19,15 @@ export async function getStaticProps() {
 
 export default function WineriesPage({ wineries, counties }) {
   const router = useRouter();
-
+  let route;
   let selectedCounties = [];
 
   if (!!router.query.county) {
-    let route = [...router.query.county];
+    if (Array.isArray(router.query.county)) {
+      route = [...router.query.county];
+    } else {
+      route = [router.query.county];
+    }
     route = route.map((number) => parseInt(number, 10));
     selectedCounties = wineries.record.wineries.filter((winery) =>
       route.includes(winery.county)
