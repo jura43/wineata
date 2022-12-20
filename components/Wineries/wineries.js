@@ -33,7 +33,13 @@ export default function Wineries(props) {
         </Col>
         <Modal
           isOpen={!!router.query.winery}
-          onRequestClose={() => router.back()}
+          onRequestClose={() =>
+            router.push(
+              router.asPath.substring(0, router.asPath.indexOf("winery=")),
+              undefined,
+              { shallow: true }
+            )
+          }
           className={style.modal}
           overlayClassName={style.overlay}
         >
