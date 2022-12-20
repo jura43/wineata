@@ -1,11 +1,13 @@
 import style from "./info.module.css";
 import InfoPicture from "./infoPicture";
+import Link from "next/link";
 
 function Info(props) {
   return (
     <div id={style.info}>
       <div id={style.infoText}>
         <h1>{props.region.title}</h1>
+        <h3 className={style.county}>{props.region.county}</h3>
         <ul className={style.font}>
           <li>
             <b>Vineyard area:</b> {props.region.vineyard_area} ha
@@ -30,6 +32,9 @@ function Info(props) {
             </ul>
           </li>
         </ul>
+        <Link href={props.region.wineries}>
+          <a className={style.wineries}>Check out wineries in this county →</a>
+        </Link>
       </div>
       <div id={style.infoPictures}>
         {props.region.images.map((image) => (
