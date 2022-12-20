@@ -15,19 +15,28 @@ function Winery(props) {
   return (
     <div className={style.winerie}>
       <h2>{props.title}</h2>
-
-      <h5>{props.rating}/5</h5>
-      <h5>{props.distance} km</h5>
       <div className={style.buttonHolder}>
-        <Link href={`/wineries/?winery=${props.name}`}>
-          <motion.button
-            className={style.button}
-            variants={buttonVariant}
-            whileHover="hover"
-          >
-            More info
-          </motion.button>
-        </Link>
+        {props.filters ? (
+          <Link href={props.slug + `&winery=${props.name}`} shallow>
+            <motion.button
+              className={style.button}
+              variants={buttonVariant}
+              whileHover="hover"
+            >
+              More info
+            </motion.button>
+          </Link>
+        ) : (
+          <Link href={`/wineries/?winery=${props.name}`} shallow>
+            <motion.button
+              className={style.button}
+              variants={buttonVariant}
+              whileHover="hover"
+            >
+              More info
+            </motion.button>
+          </Link>
+        )}
       </div>
     </div>
   );

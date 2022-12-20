@@ -6,37 +6,47 @@ import Head from "next/head";
 
 function WineryModal(props) {
   if (!props.winery) return <div>Loading...</div>;
-  return (
-    <>
-      <Head>
-        <title>Wineata - {props.winery.title}</title>
-        <meta property="og:title" content={props.winery.title} key="title" />
-      </Head>
-      <div className={style.modal}>
-        <h1 className={style.title}>{props.winery.title}</h1>
-        <h4>About Us</h4>
-        <p className={style.about}>{props.winery.about}</p>
-        <h4>Rating: {props.winery.rating}/5</h4>
-        <h4>Distance from you: {props.winery.distance} km</h4>
-        <Image
-          src={props.winery.images[0]}
-          alt={props.winery.name}
-          width={350}
-          height={230}
-          layout="intrinsic"
-          className={style.image}
-        />
-        <Image
-          src={props.winery.images[1]}
-          alt={props.winery.name}
-          width={350}
-          height={230}
-          layout="intrinsic"
-          className={style.image}
-        />
-      </div>
-    </>
-  );
+  if (!!props.counties) {
+    let county = props.counties.find(
+      (county) => county.id === props.winery.county
+    );
+    return (
+      <>
+        <Head>
+          <title>Wineata - {props.winery.title}</title>
+          <meta property="og:title" content={props.winery.title} key="title" />
+        </Head>
+        <div className={style.modal}>
+          <h1 className={style.title}>{props.winery.title}</h1>
+          <h3 className={style.county}>{county.name}</h3>
+          <h4 className={style.aboutTitle}>About Us</h4>
+          <p className={style.about}>{props.winery.about}</p>
+          <h4 className={style.winesTitle}>Wines</h4>
+          <ul>
+            {props.winery.wines.map((wine) => (
+              <li key={wine}>{wine}</li>
+            ))}
+          </ul>
+          <h4 className={style.linkTitle}>Links</h4>
+          {props.winery.website && (
+            <div>
+              <a href={props.winery.website} target="_blank" rel="noreferrer">
+                Website ⧉
+              </a>
+            </div>
+          )}
+          {props.winery.social && (
+            <div>
+              <a href={props.winery.social} target="_blank" rel="noreferrer">
+                Social media ⧉
+              </a>
+            </div>
+          )}
+        </div>
+      </>
+    );
+  }
+  return <div>Error occured</div>;
 }
 
 export default WineryModal;

@@ -9,6 +9,7 @@
 #wineries {
   padding-left: 30px;
   padding-right: 30px;
+  padding-bottom: 20px;
 }
 
 .background {
@@ -25,6 +26,7 @@
   bottom: 10%;
   border-radius: 25px;
   background-color: papayawhip;
+  overflow: auto;
 }
 
 .overlay {
@@ -33,5 +35,5 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(141, 141, 141, 0.24);
+  background-color: rgba(48, 48, 48, 0.836);
 }

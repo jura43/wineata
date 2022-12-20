@@ -9,40 +9,48 @@ import WineryModal from "./wineryModal";
 
 Modal.setAppElement("#__next");
 
-function Wineries(props) {
+export default function Wineries(props) {
   const router = useRouter();
+
   return (
     <Container fluid className={style.background}>
       <Row>
         <Col sm={12} md={12} lg={2} xl={2} id={style.filter}>
-          <Filter />
+          <Filter counties={props.counties} />
         </Col>
         <Col sm={12} md={9} lg={10} xl={10} id={style.wineries}>
-          {props.wineries.wineries.map((winery) => (
+          {props.wineries.map((winery) => (
             <Winery
               title={winery.title}
               distance={winery.distance}
               rating={winery.rating}
               key={winery.title}
               name={winery.name}
+              slug={router.asPath}
+              filters={!!Object.keys(router.query).length}
             />
           ))}
         </Col>
         <Modal
           isOpen={!!router.query.winery}
-          onRequestClose={() => router.push("/wineries")}
+          onRequestClose={() =>
+            router.push(
+              router.asPath.substring(0, router.asPath.indexOf("winery=")),
+              undefined,
+              { shallow: true }
+            )
+          }
           className={style.modal}
           overlayClassName={style.overlay}
         >
           <WineryModal
-            winery={props.wineries.wineries.find(
+            winery={props.wineries.find(
               (winery) => winery.name === router.query.winery
             )}
+            counties={props.counties}
           />
         </Modal>
       </Row>
     </Container>
   );
 }
-
-export default Wineries;

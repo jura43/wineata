@@ -1,27 +1,36 @@
 .font {
-    font-size: larger;
-    margin-top: 20px;
+  font-size: larger;
+  margin-top: 20px;
 }
 
 .font > li {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 #info {
-    width: 100%;
+  width: 100%;
 }
 
 #infoText {
-    padding-top: 5%;
-    padding-left: 10%;
+  padding-top: 5%;
+  padding-left: 10%;
 }
 
 #infoPictures {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 9%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 9%;
 }
 
 #infoPicture * {
-    margin: auto;
+  margin: auto;
+}
+
+.county {
+  text-transform: uppercase;
+}
+
+.wineries {
+  font-size: larger;
+  font-weight: bold;
 }
