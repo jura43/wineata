@@ -45,7 +45,13 @@ export default function Filter(props) {
 
   // Inital render
   useEffect(() => {
-    // Warning that is printing on application build is a bug in NextJS
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // For setting filter checkbox on first load (maybe unoptimal)
+  useEffect(() => {
     if (!!Object.keys(router.query).length) {
       if (Array.isArray(router.query.county)) {
         setFilter(router.query.county.map((number) => parseInt(number, 10)));
@@ -53,11 +59,7 @@ export default function Filter(props) {
         setFilter([parseInt(router.query.county, 10)]);
       }
     }
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [router]);
 
   return (
     <div id={style.filter}>
