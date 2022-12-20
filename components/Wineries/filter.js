@@ -59,7 +59,7 @@ export default function Filter(props) {
         setFilter([parseInt(router.query.county, 10)]);
       }
     }
-  }, [router]);
+  }, [router.query.county]);
 
   return (
     <div id={style.filter}>
