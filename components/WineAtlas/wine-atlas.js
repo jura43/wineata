@@ -77,7 +77,6 @@ function WineAtlas(props) {
     const region = event.target.id
       .replace("wineata2_svg__", "")
       .replace("_x5F", "");
-    console.log(region);
     if (region.length === 0) {
       return;
     }
