@@ -42,6 +42,13 @@ function WineryModal(props) {
               </a>
             </div>
           )}
+          {props.winery.gmaps && (
+            <div>
+              <a href={props.winery.gmaps} target="_blank" rel="noreferrer">
+                Google Maps ⧉
+              </a>
+            </div>
+          )}
         </div>
       </>
     );
