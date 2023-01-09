@@ -13,13 +13,7 @@ function Item(props) {
   return (
     <div className={props.type === "White wine" ? style.bgWhite : style.bgRed}>
       <div className={style.image}>
-        <Image
-          src={props.src}
-          alt="shop_item_image"
-          width={200}
-          height={200}
-          objectFit="contain"
-        />
+        <Image src={props.src} alt="shop_item_image" width={200} height={200} />
       </div>
       <Link href={`/shop/?item=${props.name}`}>
         <a>

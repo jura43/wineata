@@ -18,9 +18,19 @@ function ItemModal(props) {
         objectFit="contain"
       />
       <h2>{product?.price.toFixed(2)} €</h2>
-      <p>Type of wine: {product.type}</p>
-      <p>Region: {product.region}</p>
-      <p>Volume: {product.volume}</p>
+      <div className={style.info}>
+        <p className={style.category}>Type of wine: </p>
+        <p className={style.inline}> {product.type}</p>
+      </div>
+
+      <div className={style.info}>
+        <p className={style.category}>Region: </p>
+        <p className={style.inline}>{product.region}</p>
+      </div>
+      <div className={style.info}>
+        <p className={style.category}>Volume: </p>
+        <p className={style.inline}>{product.volume}</p>
+      </div>
     </div>
   );
 }
